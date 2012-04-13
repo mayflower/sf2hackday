@@ -9,8 +9,8 @@ Used for:
 
 ### Organisations
   - Top level entity
-  - Organisations must have a founder
-  - Organisations have multiple members
+  - Organisations must have a founder: Organisation::getFounder()
+  - Organisations have multiple members: Organisation::addMember(), Organisation::removeMember(), Organisation::getMembers()
   - Organisations have multiple system groups
 
 ### Founder
