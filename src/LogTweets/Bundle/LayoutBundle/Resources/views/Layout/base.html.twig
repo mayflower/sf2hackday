@@ -1,6 +1,16 @@
 {% extends 'MopaBootstrapBundle::base.html.twig' %}
 {% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}
 
+{% block head_style %}
+{% stylesheets filter='less,cssembed,?yui_css'
+    '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less'
+    '@LogTweetsLayoutBundle/Resources/public/less/main.less'
+%}
+<link href="{{ asset_url }}" type="text/css" rel="stylesheet"
+    media="screen" />
+{% endstylesheets %}
+{% endblock head_style %}
+
 {% block navbar %}
 <div class="navbar">
     <div class="navbar-inner">
@@ -73,6 +83,9 @@ LogTweets
 {% block foot_script %}
 {%- javascripts
         '@SonatajQueryBundle/Resources/public/*.js'
+        '@LogTweetsBackboneJsBundle/Resources/public/js/underscore.js'
+        '@LogTweetsBackboneJsBundle/Resources/public/js/json2.js'
+        '@LogTweetsBackboneJsBundle/Resources/public/js/backbone.js'
         '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-transition.js'
         '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-modal.js'
         '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-dropdown.js'
@@ -90,4 +103,5 @@ LogTweets
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
+{% block javascript %}{% endblock javascript %}
 {% endblock foot_script %}

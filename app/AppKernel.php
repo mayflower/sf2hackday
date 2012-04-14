@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new Sonata\jQueryBundle\SonatajQueryBundle(),
             new LogTweets\Bundle\LayoutBundle\LogTweetsLayoutBundle(),
+            new LogTweets\Bundle\BackboneJsBundle\LogTweetsBackboneJsBundle(),
             new LogTweets\Bundle\OrganisationBundle\LogTweetsOrganisationBundle(),
         );
 

@@ -15,6 +15,75 @@
         keep track of who changed what on which system — without wasting anyones
         time.
     </p>
-    <p><a class="btn btn-primary btn-large pull-right">Register now</a></p>
+    <p><a class="btn btn-primary btn-large pull-right js-registration-trigger">Register now</a></p>
+</div>
+
+<div class="modal js-registration-form is-hidden">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>Register now</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal span5">
+            <div class="control-group">
+                <label class="control-label" for="organisation-name">Organisation</label>
+                <div class="controls">
+                    <input type="text" class="span3" id="organisation-name" placeholder="Name of your organisation" name="organisation-name"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="founder-name">Name</label>
+                <div class="controls">
+                    <input type="text" class="span3" id="founder-name" name="founder-name" placeholder="e.g. John Doe"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="founder-email">E-mail</label>
+                <div class="controls">
+                    <input type="email" class="span3" id="founder-email" name="founder-email" placeholder="foo@host.com"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="founder-password">Password</label>
+                <div class="controls">
+                <input type="password" class="span3" id="founder-password" name="founder-password" placeholder="&quot;secret&quot; is a good idea" />
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary pull-right">Register</button>
+        </form>
+    </div>
 </div>
 {% endblock content %}
+
+
+{% block javascript %}
+<script>
+(function($) {
+
+var RegistrationView = Backbone.View.extend({
+    el: $('body'),
+
+    events: {
+        'click .js-registration-trigger': 'openRegistrationWindow'
+    },
+
+    initialize: function() {
+        _.bindAll(this, 'openRegistrationWindow')
+    },
+
+    openRegistrationWindow: function() {
+        console.debug(arguments);
+        $('.js-registration-form').modal({backdrop: 'static'});
+    }
+});
+
+var view = new RegistrationView();
+
+})(jQuery);
+</script>
+
+{% endblock javascript %}
