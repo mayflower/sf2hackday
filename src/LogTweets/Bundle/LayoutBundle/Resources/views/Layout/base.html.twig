@@ -1,4 +1,5 @@
 {% extends 'MopaBootstrapBundle::base.html.twig' %}
+{% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}
 
 {% block navbar %}
 <div class="navbar">
@@ -25,8 +26,49 @@
 LogTweets
 {% endblock %}
 
-{% block headline %}
-{% endblock headline %}
+{% block container %}
+<div class="container">
+<div class="content">
+    {% block page_header %}
+    <div class="page-header">
+        <h1>{% block headline %}{% endblock %}</h1>
+    </div>
+    {% endblock page_header %}
+
+    {% block flashes %}
+    {{ session_flash() }}
+    {% endblock flashes %}
+
+    {% block content_row %}
+    <div class="row-fluid">
+        {% block content %}
+        <div>
+            {% block main %}
+            {% endblock main %}
+        </div>
+        <div class="span3">
+            {% block content_sidebar %}
+                <h2>Sidebar</h2>
+            {% endblock content_sidebar %}
+        </div>
+        {% endblock content %}
+    </div>
+    {% endblock content_row %}
+</div>
+<footer class="navbar navbar-bottom">
+    {% block footer %}
+        <div class="container navbar-inner">
+            <div class="container">
+                <ul class="nav">
+                    <li><a href="#">Imprint</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+    {% endblock footer %}
+</footer>
+</div> <!-- /container -->
+{% endblock container %}
 
 {% block foot_script %}
 {%- javascripts
