@@ -23,38 +23,7 @@
         <a class="close" data-dismiss="modal">×</a>
         <h3>Register now</h3>
     </div>
-    <div class="modal-body">
-        <form class="form-horizontal span5">
-            <div class="control-group">
-                <label class="control-label" for="organisation-name">Organisation</label>
-                <div class="controls">
-                    <input type="text" class="span3" id="organisation-name" placeholder="Name of your organisation" name="organisation-name"/>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label" for="founder-name">Name</label>
-                <div class="controls">
-                    <input type="text" class="span3" id="founder-name" name="founder-name" placeholder="e.g. John Doe"/>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label" for="founder-email">E-mail</label>
-                <div class="controls">
-                    <input type="email" class="span3" id="founder-email" name="founder-email" placeholder="foo@host.com"/>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label" for="founder-password">Password</label>
-                <div class="controls">
-                <input type="password" class="span3" id="founder-password" name="founder-password" placeholder="&quot;secret&quot; is a good idea" />
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary pull-right">Register</button>
-        </form>
+    <div class="modal-body js-registration-form-container">
     </div>
 </div>
 {% endblock content %}
@@ -68,16 +37,76 @@ var RegistrationView = Backbone.View.extend({
     el: $('body'),
 
     events: {
-        'click .js-registration-trigger': 'openRegistrationWindow'
+        'click .js-registration-trigger': 'openRegistrationWindow',
+        'click .js-registration-submit': 'register',
+        'keypress .js-registration-form-container input[name=organisation]': 'onOrganisationInput'
     },
 
     initialize: function() {
-        _.bindAll(this, 'openRegistrationWindow')
+        _.bindAll(this, 'openRegistrationWindow', 'register', 'onOrganisationInput');
+        this.registration = new RegistrationModel();
     },
 
     openRegistrationWindow: function() {
-        console.debug(arguments);
-        $('.js-registration-form').modal({backdrop: 'static'});
+        this.form = new Backbone.Form({model: this.registration}).render();
+        $(this.form.el).append(
+            '<button type="submit" class="btn btn-primary pull-right js-registration-submit">Register</button>'
+        );
+        $('.js-registration-form-container').html(this.form.el);
+        $('.js-registration-form').modal();
+    },
+
+    register: function(event) {
+        event.preventDefault();
+
+        this.form.commit();
+        //this.registration.save();
+    },
+
+    onOrganisationInput: function(event) {
+        var organisationName = $(event.target).attr('value')
+                             + String.fromCharCode(event.keyCode);
+        var path = organisationName.replace(/[^\w\d\s]/g, '')
+                                  .toLowerCase()
+                                  .replace(/\s+/, '-');
+
+        $(event.target).closest('.controls')
+                       .find('.help-block')
+                       .html('Your URL: logtweets.com/organisation/' + path);
+    }
+});
+
+var RegistrationModel = Backbone.Model.extend({
+    schema: {
+        organisation: {
+            dataType: 'text',
+            validators: ['required'],
+            editorAttrs: {
+                placeholder: 'Give your organisation a name'
+            },
+            help: '&nbsp;'
+        },
+        email: {
+            dataType: 'email',
+            validators: ['required', 'email'],
+            editorAttrs: {
+                placeholder: 'How can we reach you?'
+            }
+        },
+        name: {
+            dataType: 'text',
+            validators: ['required'],
+            editorAttrs: {
+                placeholder: 'How should we address you?'
+            }
+        },
+        password: {
+            dataType: 'password',
+            validators: ['required'],
+            editorAttrs: {
+                placeholder: '"secret" is always a good idea'
+            }
+        }
     }
 });
 
