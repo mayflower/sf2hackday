@@ -1,4 +1,8 @@
 # Internal routing configuration to handle ESI
 #_internal:
-#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
-#   prefix:   /_internal
+#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#    prefix:   /_internal
+
+_organisation:
+    resource: "@LogTweetsOrganisationBundle/Resources/config/routing/organisation.xml"
+    prefix:   /

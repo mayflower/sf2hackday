@@ -1,5 +1,5 @@
 imports:
-    - { resource: parameters.ini }
+    - { resource: parameters.yml }
     - { resource: security.yml }
 
 framework:
@@ -12,26 +12,32 @@ framework:
     csrf_protection: true
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    default_locale:  %locale%
     session:
-        default_locale: %locale%
         auto_start:     true
 
 # Twig Configuration
 twig:
-    debug:            %kernel.debug%
+    debug:         %kernel.debug%
     strict_variables: %kernel.debug%
 
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    # java: /usr/bin/java
+    bundles:        [LogTweetsLayoutBundle, MopaBootstrapBundle]
+    #java: /usr/bin/java
     filters:
         cssrewrite: ~
-        # closure:
-        #     jar: %kernel.root_dir%/java/compiler.jar
-        # yui_css:
-        #     jar: %kernel.root_dir%/java/yuicompressor-2.4.2.jar
+        less:
+            node: /usr/bin/node
+            node_paths: [/usr/local/lib/node_modules]
+        cssembed:
+            jar: %kernel.root_dir%/../vendor/nzakas/cssembed/cssembed-0.4.5.jar
+        #closure:
+        #    jar: %kernel.root_dir%/Resources/java/compiler.jar
+        #yui_css:
+        #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
 
 # Doctrine Configuration
 doctrine:
@@ -54,7 +60,7 @@ swiftmailer:
     host:      %mailer_host%
     username:  %mailer_user%
     password:  %mailer_password%
+    spool:     { type: memory }
 
-jms_security_extra:
-    secure_controllers:  true
-    secure_all_services: false
+mopa_bootstrap:
+    navbar: ~

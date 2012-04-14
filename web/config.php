@@ -12,6 +12,7 @@ if (!in_array(@$_SERVER['REMOTE_ADDR'], array(
     exit('This script is only accessible from localhost.');
 }
 
+<<<<<<< HEAD
 $majorProblems = array();
 $minorProblems = array();
 $phpini = false;
@@ -143,12 +144,28 @@ if (ini_get('session.auto_start')) {
     <head>
         <meta charset="UTF-8" />
         <link href="bundles/sensiodistribution/webconfigurator/css/install.css" rel="stylesheet" media="all" />
+=======
+require_once dirname(__FILE__).'/../app/SymfonyRequirements.php';
+
+$symfonyRequirements = new SymfonyRequirements();
+
+$majorProblems = $symfonyRequirements->getFailedRequirements();
+$minorProblems = $symfonyRequirements->getFailedRecommendations();
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="bundles/sensiodistribution/webconfigurator/css/install.css" />
+>>>>>>> symfony/master
         <title>Symfony Configuration</title>
     </head>
     <body>
         <div id="symfony-wrapper">
             <div id="symfony-content">
                 <div class="symfony-blocks-install">
+<<<<<<< HEAD
                 <div class="symfony-block-logo">
                     <img src="bundles/sensiodistribution/webconfigurator/images/logo-big.gif" alt="sf_symfony" />
                 </div>
@@ -191,10 +208,52 @@ if (ini_get('session.auto_start')) {
                             <p>*
                                 <?php if (get_cfg_var('cfg_file_path')): ?>
                                     Changes to the <strong>php.ini</strong> file must be done in "<strong><?php echo get_cfg_var('cfg_file_path') ?></strong>".
+=======
+                    <div class="symfony-block-logo">
+                        <img src="bundles/sensiodistribution/webconfigurator/images/logo-big.gif" alt="Symfony logo" />
+                    </div>
+
+                    <div class="symfony-block-content">
+                        <h1>Welcome!</h1>
+                        <p>Welcome to your new Symfony project.</p>
+                        <p>
+                            This script will guide you through the basic configuration of your project.
+                            You can also do the same by editing the ‘<strong>app/config/parameters.yml</strong>’ file directly.
+                        </p>
+
+                        <?php if (count($majorProblems)): ?>
+                            <h2>Major problems</h2>
+                            <p>Major problems have been detected and <strong>must</strong> be fixed before continuing:</p>
+                            <ol>
+                                <?php foreach ($majorProblems as $problem): ?>
+                                    <li><?php echo $problem->getHelpHtml() ?></li>
+                                <?php endforeach; ?>
+                            </ol>
+                        <?php endif; ?>
+
+                        <?php if (count($minorProblems)): ?>
+                            <h2>Recommendations</h2>
+                            <p>
+                                <?php if (count($majorProblems)): ?>Additionally, to<?php else: ?>To<?php endif; ?> enhance your Symfony experience,
+                                it’s recommended that you fix the following:
+                            </p>
+                            <ol>
+                                <?php foreach ($minorProblems as $problem): ?>
+                                    <li><?php echo $problem->getHelpHtml() ?></li>
+                                <?php endforeach; ?>
+                            </ol>
+                        <?php endif; ?>
+
+                        <?php if ($symfonyRequirements->hasPhpIniConfigIssue()): ?>
+                            <p id="phpini">*
+                                <?php if ($symfonyRequirements->getPhpIniConfigPath()): ?>
+                                    Changes to the <strong>php.ini</strong> file must be done in "<strong><?php echo $symfonyRequirements->getPhpIniConfigPath() ?></strong>".
+>>>>>>> symfony/master
                                 <?php else: ?>
                                     To change settings, create a "<strong>php.ini</strong>".
                                 <?php endif; ?>
                             </p>
+<<<<<<< HEAD
                     <?php endif; ?>
 
                     <ul class="symfony-install-continue">
@@ -204,6 +263,18 @@ if (ini_get('session.auto_start')) {
                         <?php endif ?>
                         <li><a href="config.php">Re-check configuration</a></li>
                     </ul>
+=======
+                        <?php endif; ?>
+
+                        <ul class="symfony-install-continue">
+                            <?php if (!count($majorProblems)): ?>
+                                <li><a href="app_dev.php/_configurator/">Configure your Symfony Application online</a></li>
+                                <li><a href="app_dev.php/">Bypass configuration and go to the Welcome page</a></li>
+                            <?php endif; ?>
+                            <li><a href="config.php">Re-check configuration</a></li>
+                        </ul>
+                    </div>
+>>>>>>> symfony/master
                 </div>
             </div>
         </div>

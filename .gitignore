@@ -1,6 +1,11 @@
-/web/bundles/
-/app/bootstrap*
-/app/cache/*
-/app/logs/*
-/vendor/
-/app/config/parameters.ini
+web/bundles/
+app/bootstrap.php.cache
+app/cache/*
+app/logs/*
+build/
+vendor/
+composer.phar
+nbproject/
+web/css/
+web/js/
+install-composer.php
