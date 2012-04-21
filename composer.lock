@@ -12,7 +12,7 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "dd3d35dd28e864fb908a70f8b206d1209aa2c333"
+            "source-reference": "93e0089c1eb6f4d3a171b65986450ddb8c69271b"
         },
         {
             "package": "doctrine/orm",
@@ -41,7 +41,7 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "eb3b5eb732e5f172d5aa12dea0af36b7989c18b3"
+            "source-reference": "3acfb6afa50dd1dca387a8dfb641cd3b98a8584d"
         },
         {
             "package": "monolog/monolog",
@@ -50,7 +50,7 @@
         {
             "package": "mopa/bootstrap-bundle",
             "version": "dev-master",
-            "source-reference": "20812b3dafa9c3c587d623ac4a96175d09cf98f5"
+            "source-reference": "b454d345ae9305ac1e7f90c20ab10d68c54ce9f5"
         },
         {
             "package": "nzakas/cssembed",
@@ -59,7 +59,7 @@
         {
             "package": "sensio/distribution-bundle",
             "version": "dev-master",
-            "source-reference": "38be63ebb45cc1fbeaff3f2bdf6d0ed216305a24"
+            "source-reference": "a2f09ae4b38533d9f16083b740f6a77fb5efd313"
         },
         {
             "package": "sensio/framework-extra-bundle",
@@ -69,7 +69,7 @@
         {
             "package": "sensio/generator-bundle",
             "version": "dev-master",
-            "source-reference": "06d07e0514d310be8d5630bfd93637136991c30c"
+            "source-reference": "5f2ded5e5679f66c604f128d5650715bb81d7d7c"
         },
         {
             "package": "sonata-project/jquery-bundle",
@@ -88,7 +88,7 @@
         {
             "package": "symfony/monolog-bundle",
             "version": "dev-master",
-            "source-reference": "289442e385e7c0fe4aa2e8884d11e774a8f9ad99"
+            "source-reference": "aea0145e5669ed855db430e0f53536fab16b6dd7"
         },
         {
             "package": "symfony/swiftmailer-bridge",
@@ -98,23 +98,23 @@
         {
             "package": "symfony/swiftmailer-bundle",
             "version": "dev-master",
-            "source-reference": "75f8f95c201922a966274547131b33291d15d51b"
+            "source-reference": "1c6b57fe57210e9dcb5b4586d6572f47d17a25d7"
         },
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "d2fd9ce7b91a477f81eab8076a8e63f528b5d41e",
+            "source-reference": "6c714095fa3e74c4a5466037f02e1845b9130d35",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
             "package": "twig/extensions",
             "version": "dev-master",
-            "source-reference": "4c831657215e51568fcb31bb9142e827f9a69bd5"
+            "source-reference": "446d870272cd87a720e95242eade38a2acf56eaa"
         },
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "4e28408ce1fced95251e5f8c8299aa43e9f40f4d",
+            "source-reference": "fa0b0985c3b3b62281ea938f01eadf04cdbeaa3f",
             "alias": "1.7.9999999.9999999-dev"
         },
         {
@@ -123,5 +123,6 @@
             "source-reference": "master"
         }
     ],
+    "packages-dev": null,
     "aliases": []
 }
