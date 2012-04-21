@@ -3,7 +3,7 @@ namespace LogTweets\Component\Service\Command;
 
 use InvalidArgumentException;
 
-class InputArgument
+class InputArgumentBag
 {
     private $arguments = array();
 

@@ -2,7 +2,7 @@
 namespace LogTweets\Component\Tests\Service\Command;
 
 use PHPUnit_Framework_TestCase as TestCase;
-use LogTweets\Component\Service\Command\InputArgument;
+use LogTweets\Component\Service\Command\InputArgumentBag;
 use stdClass;
 
 class InputArgumentTest extends TestCase
@@ -11,7 +11,7 @@ class InputArgumentTest extends TestCase
 
     public function setUp()
     {
-        $this->argument = new InputArgument();
+        $this->argument = new InputArgumentBag();
     }
 
     public function testSettingAndGettingInputArgument()

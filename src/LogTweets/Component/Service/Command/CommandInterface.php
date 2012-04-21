@@ -3,7 +3,7 @@ namespace LogTweets\Component\Service\Command;
 
 class CommandInterface
 {
-    public function execute(InputArgument $argument);
+    public function execute(InputArgumentBag $argument);
 
-    public function rollback(InputArgument $argument);
+    public function rollback(InputArgumentBag $argument);
 }
