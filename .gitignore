@@ -9,3 +9,5 @@ nbproject/
 web/css/
 web/js/
 install-composer.php
+
+vendor
