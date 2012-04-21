@@ -1,5 +1,5 @@
 {
-    "hash": "fae921153e4ff26058479d382c933723",
+    "hash": "9af5078bb4710be14b3a3a9ba014db46",
     "packages": [
         {
             "package": "doctrine/common",
@@ -13,6 +13,16 @@
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
             "source-reference": "93e0089c1eb6f4d3a171b65986450ddb8c69271b"
+        },
+        {
+            "package": "doctrine/doctrine-migrations-bundle",
+            "version": "dev-master",
+            "source-reference": "e670643b1011fb997a209d8564a1c493fda1f4c3"
+        },
+        {
+            "package": "doctrine/migrations",
+            "version": "dev-master",
+            "source-reference": "9e81984b0f126b0830d9ac6acc2d1da81aba2b94"
         },
         {
             "package": "doctrine/orm",
