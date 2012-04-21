@@ -1,5 +1,5 @@
 {
-    "hash": "a460d9fc42bb73127f6eb3fcee631eda",
+    "hash": "fae921153e4ff26058479d382c933723",
     "packages": [
         {
             "package": "doctrine/common",
@@ -17,6 +17,11 @@
         {
             "package": "doctrine/orm",
             "version": "2.2.0"
+        },
+        {
+            "package": "hearsay/require-js-bundle",
+            "version": "master",
+            "source-reference": "master"
         },
         {
             "package": "jms/aop-bundle",

@@ -20,7 +20,8 @@
         "mopa/bootstrap-bundle": "dev-master",
         "twitter/bootstrap": "master",
         "nzakas/cssembed": "0.4.5",
-        "sonata-project/jquery-bundle": "master"
+        "sonata-project/jquery-bundle": "master",
+        "hearsay/require-js-bundle": "master"
     },
     "scripts": {
         "post-install-cmd": [
@@ -70,6 +71,18 @@
                    "type": "file"
                }
            }
+       },
+       {
+            "type": "package",
+            "package": {
+                "version": "master",
+                "name": "hearsay/require-js-bundle",
+                "source": {
+                    "url": "git://github.com/lstrojny/HearsayRequireJSBundle.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
        }
     ]
 }
