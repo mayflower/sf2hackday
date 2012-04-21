@@ -22,18 +22,35 @@ class InputArgumentBag
             throw new InvalidArgumentException(sprintf('Input argument "%s" does not exist', $name));
         }
 
-        if ($type !== null && !$this->arguments[$name] instanceof $type) {
+        if (!$this->isOfType($name, $type)) {
             throw new InvalidArgumentException(
                 sprintf(
                     'Input argument "%s" is not of type "%s" but of type "%s"',
                     $name,
                     $type,
-                    get_class($this->arguments[$name])
-
+                    $this->getType($this->arguments[$name])
                 )
             );
         }
 
         return $this->arguments[$name];
+    }
+
+    private function isOfType($name, $type = null)
+    {
+        if ($type === null) {
+            return true;
+        }
+
+        if (is_object($this->arguments[$name])) {
+            return $this->arguments[$name] instanceof $type;
+        }
+
+        return gettype($this->arguments[$name]) === $type;
+    }
+
+    private function getType($value)
+    {
+        return is_object($value) ? get_class($value) : gettype($value);
     }
 }

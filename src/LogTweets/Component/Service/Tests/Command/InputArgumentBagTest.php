@@ -34,6 +34,20 @@ class InputArgumentTest extends TestCase
         $this->argument->get('test', 'SomeClass');
     }
 
+    public function testSettingAndRetrievingPrimitiveType()
+    {
+        $value = 'HELLO WORLD';
+        $this->assertNull($this->argument->set('test', $value));
+        $this->assertSame($value, $this->argument->get('test'));
+    }
+
+    public function testRetrievingInvalidPrimitiveType()
+    {
+        $value = 'HELLO WORLD';
+        $this->assertNull($this->argument->set('test', $value));
+        $this->assertSame($value, $this->argument->get('test', 'string'));
+    }
+
     public function testSettingAlreadyPresentArgumentIsNotAllowed()
     {
         $this->argument->set('test', new stdClass());
