@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new LogTweets\Bundle\LayoutBundle\LogTweetsLayoutBundle(),
             new LogTweets\Bundle\BackboneJsBundle\LogTweetsBackboneJsBundle(),
             new LogTweets\Bundle\OrganisationBundle\LogTweetsOrganisationBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

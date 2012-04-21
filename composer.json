@@ -21,7 +21,8 @@
         "twitter/bootstrap": "master",
         "nzakas/cssembed": "0.4.5",
         "sonata-project/jquery-bundle": "master",
-        "hearsay/require-js-bundle": "master"
+        "hearsay/require-js-bundle": "master",
+        "doctrine/doctrine-migrations-bundle": "master"
     },
     "scripts": {
         "post-install-cmd": [
